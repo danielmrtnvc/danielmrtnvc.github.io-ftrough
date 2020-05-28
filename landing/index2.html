@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Logo</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="">
+
+		<script src="../wp-includes/js/vara/vara.min.js"></script>
+		
+		
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			body{
+				background-color: blueviolet;
+				background-size: cover;
+				height: 100vh;
+				overflow: hidden;
+				color: white;
+			}			
+
+			#container{
+				width: 80%;
+				margin: 20px auto;
+				min-height: 700px;
+				margin-top: 150px;
+			}
+
+		</style>
+	</head>
+	<body>
+	
+		<div id="container"></div>
+	
+		<script>
+			var fontSize = 72;
+				if(window.screen.width > 700)
+					fontSize = 32;
+				else if(window.screen.width < 1200)
+					fontSize = 57;
+				var vara = new Vara(
+					"#container",
+					"https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
+				[
+					{
+					text : 'faceting rough',
+						y: 100,
+						fromCurrentPosition: {y:false},
+						delay: 1000,
+						duration: 3000
+					},
+				],
+					{
+						strokeWidth: 1,
+						color:"#000",
+						fontSize:fontSize,
+						textAlign:"Center"
+					}
+				);
+			vara.ready(function(){
+				var erase = false;
+				vara.animationEnd(function(i,o){
+					if(i == "no_erase") erase = false; 
+					if(erase){
+						o.container.style.transition = "opacity 1s 1s";
+						o.container.style.opacity = 0;
+					}
+				});
+			});
+		</script>
+			
+		<script src="" async defer></script>
+		</body>
+	</html>
